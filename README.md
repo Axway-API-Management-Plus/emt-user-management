@@ -88,3 +88,7 @@ rm -rf /opt/Axway/APIM//apigateway/system/lib/ibmmq
 
 CMD ["/opt/Axway/apigateway/posix/bin/start-emt-nodemanager"]
 ```
+
+## Authorship
+
+This script was authored by my colleague [Rathna Natarajan](https://github.com/rathnapandi) who gave me permission to host this script here and license it under the Apache license.
