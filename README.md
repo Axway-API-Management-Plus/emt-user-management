@@ -13,19 +13,24 @@ Manage API Gateway Manager (ANM) Users
 
 Options:
 
-  -h, --help           show this help message and exit
-  --action=ACTION      add / update / delete users
+  -h, --help           Show this help message and exit.
+  --action=ACTION      What to do with the user.  Valid actions are: add, update, and delete.
   --username=USERNAME  Username
   --password=PASSWORD  Password
-  --filePath=FILEPATH  adminUsers.json file path e.g
-                       /home/axway/conf/adminUsers.json
-  --roles=ROLES        Comma separated value for roles:   
+  --filePath=FILEPATH  Path to the adminUsers.json file path e.g
+                       /opt/Axway/apigateway/conf/adminUsers.json
+  --roles=ROLES        Comma separated list of numbers representing roles.
+                       Default roles are:   
                        1. API Server Administrator
                        2. API Server Operator   
                        3. Deployer   
                        4. KPS Administrator 
                        5. Policy Developer                 
 ```
+
+If you have defined custom roles, or otherwise changed the roles list, note that you may have to customize the list of role mappings in this script in the `rolesDictionary` object to make it work.  Also note that the numbers in the `--roles` argument are relative, so a `3` corresponds to the third role defined in `adminUsers.json` which might not match up with what's listed as `role-3` in the `adminUsers.json` file.  If the `adminUsers.json` file contains a list like `role-1`, `role-2`, `role-5`, `role-6`, and `role-7`, then `--roles=1,2,3` will give the user `"roles" : [ "role-1", "role-2", "role-5" ]` in the output.
+
+For more information on how RBAC works and these user roles are defined in the API Gateway, refer to the Axway API Gateway documentation on how to [Configure Role-Based Access Control (RBAC)](https://docs.axway.com/bundle/axway-open-docs/page/docs/apim_administration/apigtw_admin/general_rbac/index.html).
 
 ## Examples
 
